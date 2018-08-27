@@ -37,7 +37,7 @@ class Dashboard extends React.Component {
 
             const report = JSON.parse(reportResponse)
 
-            if((report.location && this.state.robotLocation !== report.location) || (report.facing && this.state.robotDirection != report.facing)) {
+            if((!this.locked && report.location && this.state.robotLocation !== report.location) || (!this.locked && report.facing && this.state.robotDirection != report.facing)) {
                 console.log('Subscription event');
                 this.setState({
                     robotLocation: report.location,
@@ -64,6 +64,8 @@ class Dashboard extends React.Component {
     }
 
     placeRobot(x, y, facing) {
+        this.locked = true;
+
         placeRobot({
             x: x,
             y: y,
@@ -77,6 +79,8 @@ class Dashboard extends React.Component {
             isRobotMovable: movable,
             robotAngleOfRotation:  parseRobotDirection(facing)
         })
+
+        this.locked = false;
     }
 
     moveRobot() {
