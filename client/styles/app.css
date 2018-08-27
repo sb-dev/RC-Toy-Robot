@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'futurama';
+    src: url('../assets/fonts/futurama.ttf')  format('truetype');
+}
+
+body#rc-robot {
+    font-family: 'Roboto', sans-serif;
+    background: #fafafa;
+}
+
+.robot {
+    position: absolute;
+    width: 50px;
+    -webkit-transition: -webkit-transform .8s ease-in-out, left 1s linear, right 1s linear, bottom 1s linear, top 1s linear;
+    -ms-transition: -ms-transform .8s ease-in-out, left 1s linear, right 1s linear, bottom 1s linear, top 1s linear;
+    transition: transform .8s ease-in-out, left 1s linear, right 1s linear, bottom 1s linear, top 1s linear;
+    z-index: 100;
+    display: none;
+}
+
+.robot[data-position] {
+    display: block;
+}
+
+.dashboard {
+    height: 100%;
+}
+
+#root {
+    height: 100%;
+}
+
+.ui.header.app-header {
+    font-family: 'futurama', 'Roboto', sans-serif;
+    text-align: center;
+    border: 1px solid rgba(34,36,38,.15);
+    -webkit-box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    border-radius: .28571429rem;
+    min-height: 2.85714286em;
+    line-height: 2.85714286em;
+    background: white;
+}
+
+.grid-container {
+    height: calc(100% - 200px);
+    padding-bottom: 40px;
+    padding-top: 5px;
+}
+
+.grid-container .ui.grid {
+    height: 100%;
+    background: white;
+}
+
+.disabled {
+    color: rgba(0,0,0,0.40);
+}
+
+.ui.icon.menu.controls .item {
+    font-size: 1.6em;
+}
