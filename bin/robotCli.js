@@ -18,11 +18,11 @@ program
 program
     .command('place')
     .description('Place robot')
-    .option('-x, --x <n>', 'Robot x coordinate', parseInt)
-    .option('-y, --y <n>', 'Robot y coordinate', parseInt)
+    .option('-x, --x <n>', 'Robot x coordinate', /^(0|1|2|3|4)$/i, '0')
+    .option('-y, --y <n>', 'Robot y coordinate', /^(0|1|2|3|4)$/i, '0')
     .option('-f, --facing [value]', 'Robot direction', /^(north|south|west|east)$/i, 'south')
     .action((cmd) => {
-        robot.place(cmd.x, cmd.y, cmd.facing)
+        robot.place(parseInt(cmd.x), parseInt(cmd.y), cmd.facing)
     })
 
 program
